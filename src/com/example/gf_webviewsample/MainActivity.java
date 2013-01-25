@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
 		
 		WebView webView = new WebView(this);
 		webView.getSettings().setJavaScriptEnabled(true);
-		webView.loadUrl("http://exdev1.basicinc.jp/sakuraba/gf/web.html");
+		webView.loadUrl("http://www.example.com/");
 		JsObject jsObj = new JsObject(this);
 		webView.addJavascriptInterface(jsObj, "andjs");
 
@@ -27,7 +27,9 @@ public class MainActivity extends Activity {
 		public JsObject(Context con) {
 			this.con = con;
 		}
-
+		/*
+		 * HTML側で onClick="andjs.loadGameFeat()" とメソッドを呼ぶことが可能
+		 */
 		public void loadGameFeat() {
 			GameFeatAppController.show(MainActivity.this);
 		}
